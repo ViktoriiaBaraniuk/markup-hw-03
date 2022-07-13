@@ -24,6 +24,19 @@ body {
 .link {
     text-decoration: none;  
 }
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
 .container {
     width: 1200px;
     padding-left: 15px;
@@ -52,16 +65,19 @@ body {
 }
 img {
     display: block;
+    max-width: 100%;
+    height: auto;
 }
 
 .logo {
-    margin-right: 85px; 
-
     font-family: 'Raleway', sans-serif;
     font-size: 26px;
     line-height: 1.19;
     text-decoration: none;
     color: var(--accent-color);
+}
+.nav-part .logo {
+    margin-right: 85px;
 }
 .logo-part {
     color: var(--title-text-color);
@@ -71,15 +87,16 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    padding-top: 24px;
-    padding-bottom: 25px;
 } 
 .nav-part {
     display: flex;
     align-items: center;
 }
 .site-nav .link{
+    display: block;
+    padding-top: 32px;
+    padding-bottom: 32px;
+
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--title-text-color);
@@ -98,6 +115,8 @@ img {
     display: flex;
 }
 .auth-nav .link{
+    display: block;
+    
     font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--main-text-color);
@@ -105,11 +124,8 @@ img {
 .auth-nav .item:not(:last-child) {
     margin-right: 30px;
 }
-.link:hover,
-.link:focus {
-    color: var(--accent-color);
-}
 .hero {
+    max-width: 696px;
     text-align: center;
 }
 .hero-title {
@@ -159,7 +175,7 @@ img {
     text-align: center;
 }
 .works.section {
-    padding-top: 0;
+   border-top: 1px solid #ECECEC;
 }
 .works .list {
     display: flex;
@@ -185,10 +201,17 @@ img {
 .team .item:not(:last-child) {
     margin-right: 30px;
 }
-.team .member{
-    margin-top: 30px;
+.team .item {
+    border-radius: 0px 0px 4px 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.card-content {
+    padding: 30px 32px 24px;
+}
+.team .member {
+    margin-top: 0;
     margin-bottom: 10px;
-
+    
     font-weight: 500;
     font-size: inherit;
     color: var(--title-text-color);
@@ -203,20 +226,26 @@ img {
     margin: 0;
     padding: 0;
 }
-.footer-box {
+.page-footer {
     padding-top: 60px;
     padding-bottom: 60px;
 
     background-color: var(--footer-bg-color);
 }
-.footer {
+.page-footer > .container {
     display: flex;
     align-items: baseline;
 }
-.footer .address {
+.page-footer .address {
     margin-right: 69px;
 }
+.page-footer .links {
+    margin-right: 94px;
+}
 .location {
+    display: flex;
+    flex-direction: column;
+
     font-style: normal;
     line-height: 1.71;
 
@@ -225,45 +254,47 @@ img {
 .location .contacts {
     color: rgba(255, 255, 255, 0.6);
 }
-.footer .links {
-    margin-right: 94px;
-}
-.footer .logo {
+.page-footer .logo {
     display: block;
     margin-bottom: 20px;
 }
-.footer .logo-part {
+
+.logo-part.inverse{
     color: var(--white-text-color);
 }
 .join {
-    margin-top: 0;
+    display: block;
     margin-bottom: 20px;
 
     text-transform: uppercase;
-    
     color: var(--white-text-color);
 }
-
+.link:hover,
+.link:focus {
+    color: var(--accent-color);
+}
 
 
 
 
 /* Portfolio */
 .portfolio .link {
+    display: block;
     color: var(--main-text-color);
 }
 .portfolio .filter {
     display: flex;
     justify-content: center;
+
+    margin-bottom: 50px;
 }
 .portfolio .examples {
     display: flex;
     flex-wrap: wrap;
-    flex-basis: calc((100% - 60px) / 3);
+    
 }
 .btn {
     padding: 6px 22px;
-    margin-bottom: 50px;
     border-radius: 4px;
 
     font-family: 'Roboto', sans-serif;
@@ -284,11 +315,15 @@ img {
     
 }
 .examples .item {
-    max-width: 370px;
+    flex-basis: calc((100% - 60px) / 3);
     margin-right: 30px;
     margin-bottom: 30px;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    overflow: hidden;
 }
-.examples .item:nth-child(3n + 3) {
+.examples .item:nth-child(3n) {
   margin-right: 0;
 }
 .examples .item:nth-last-child(-n + 3) {
@@ -316,10 +351,12 @@ img {
     font-size: 16px;
     line-height: 1.88;
 }
-.text-section {
+.text-content {
     padding: 20px 24px;
     border: 1px solid #EEEEEE;
     border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .descr {
     margin: 0;
