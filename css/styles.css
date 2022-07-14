@@ -68,7 +68,9 @@ img {
     max-width: 100%;
     height: auto;
 }
-
+.page-header {
+    border: 1px solid #ECECEC;
+}
 .logo {
     font-family: 'Raleway', sans-serif;
     font-size: 26px;
